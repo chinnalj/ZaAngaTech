@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<title>Zaanga-Tech</title>
+<head>UserData</head>
+<body>
+<p id="demo" onclick="ValidateLogin()">Click to validate</p>
+<script>
+ function ValidateLogin()
+ {
+ var xhr = new XMLHttpRequest();
+var url = "https://c01-usa-east.integrate-test.boomi.com/ws/rest/v1/boomiflowapi/Login/";
+xhr.open("GET", url, true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Authorization", "Basic Ym9vbWlfam9zZXBoa2VlcnRoaXByYWthcy1KQkhEOEguTTZFUEFIOmQxOWMzZjI1LWRmNjctNDk5Mi04YjNjLThlNzdmZTVlZTY5MA==");
+xhr.setRequestHeader("username", "josephanga");
+xhr.setRequestHeader("password", "Rambo28");
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        var json = JSON.parse(xhr.responseText);
+        console.log(json.username + ", " + json.password);
+    }
+};
+xhr.send();
+}
+</script>
+</body>
+</html>

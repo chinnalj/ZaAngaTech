@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to trigger a function.</p>
+
+<button onclick="ValidateLogin()">Click me</button>
+
+<p id="demo"></p>
+
+<script>
+function ValidateLogin()
+ {
+ var xhr = new XMLHttpRequest();
+ const proxyurl = "https://cors-anywhere.herokuapp.com/";
+var url = "https://c01-usa-east.integrate-test.boomi.com/ws/rest/v1/boomiflowapi/Login/";
+xhr.open("GET", proxyurl + url, false);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Authorization", "Basic Ym9vbWlfam9zZXBoa2VlcnRoaXByYWthcy1KQkhEOEguTTZFUEFIOmQxOWMzZjI1LWRmNjctNDk5Mi04YjNjLThlNzdmZTVlZTY5MA==");
+xhr.setRequestHeader("username", "josephanga");
+xhr.setRequestHeader("password", "Rambo28");
+xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+xhr.send();
+return xhr.responseText;
+}
+</script>
+
+</body>
+</html>
